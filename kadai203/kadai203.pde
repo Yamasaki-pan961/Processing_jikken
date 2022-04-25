@@ -31,7 +31,7 @@ void draw() {
     rect(racketX, racketY, racketW, racketH);
 }
 
-boolean icollision() {
+boolean collision() {
     float halfW = racketW / 2;
     float halfH = racketH / 2;
     
