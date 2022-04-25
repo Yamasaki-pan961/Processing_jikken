@@ -45,8 +45,8 @@ Collisioning collision() {
     boolean isCollision = overlappingX && overlappingY;
     
     if (isCollision) {
-        boolean isCollisionHorizen = isOverlappingX(x,x);
-        boolean isCollisionVertical = isOverlappingY(y,y);
+        boolean isCollisionHorizen = isOverlappingY(y,y);
+        boolean isCollisionVertical = isOverlappingX(x,x);
         return new Collisioning(isCollisionHorizen,isCollisionVertical);
     } else{
         return new Collisioning(false,false);
