@@ -1,3 +1,11 @@
+class Collisioning{
+    Collisioning(boolean x, boolean y) {
+        this.x = x;
+        this.y = y;
+    }
+    boolean x, y;
+}
+
 float x,y,radius;
 float dx = 2.0, dy = 2.0;
 
@@ -32,13 +40,21 @@ void draw() {
 }
 
 boolean collision() {
+    boolean overlappingX = isOverlappingX(x + radius, x - radius);
+    boolean overlappingY = isOverlappingY(y + radius, y - radius);
+    boolean isCollision = overlappingX && overlappingY;
+    
+    return isCollision;
+}
+
+boolean isOverlappingX(float upper, float lower) {
     float halfW = racketW / 2;
+    return(racketX - halfW)<(upper) && (racketX + halfW)>(lower);
+}
+
+boolean isOverlappingY(float upper, float lower) {
     float halfH = racketH / 2;
-    
-    boolean overlappingX = (racketX - halfW)<(x + radius) && (racketX + halfW)>(x - radius);
-    boolean overlappingY = (racketY - halfH)<(y + radius) && (racketY + halfH)>(y - radius);
-    
-    return overlappingX && overlappingY;
+    return(racketY - halfH)<(upper) && (racketY + halfH)>(lower);
 }
 
 void keyPressed() {
