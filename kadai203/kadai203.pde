@@ -26,25 +26,31 @@ void setup() {
 
 void draw() {
     background(128, 128, 128);
-    x = x + dx;
-    y = y + dy;
-    
-    if ((x < 10) || (x>(width - 10))) {
+    Collisioning collisioning = collision();
+    if ((x < 10) || (x>(width - 10)) || collisioning.x) {
         dx = -dx;
     }
-    if ((y < 10) || (y>(height - 10)) ||  collision()) {
+    if ((y < 10) || (y>(height - 10)) ||  collisioning.y) {
         dy = -dy;
     }
+    x = x + dx;
+    y = y + dy;
     ellipse(x,y,radius * 2,radius * 2);
     rect(racketX, racketY, racketW, racketH);
 }
 
-boolean collision() {
+Collisioning collision() {
     boolean overlappingX = isOverlappingX(x + radius, x - radius);
     boolean overlappingY = isOverlappingY(y + radius, y - radius);
     boolean isCollision = overlappingX && overlappingY;
     
-    return isCollision;
+    if (isCollision) {
+        boolean isCollisionHorizen = isOverlappingX(x,x);
+        boolean isCollisionVertical = isOverlappingY(y,y);
+        return new Collisioning(isCollisionHorizen,isCollisionVertical);
+    } else{
+        return new Collisioning(false,false);
+    }
 }
 
 boolean isOverlappingX(float upper, float lower) {
