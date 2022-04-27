@@ -44,7 +44,8 @@ void keyPressed(){
 }
 ```
 
-スクリーンショット
+kadai101 実行画面の画像
+![kadai101]()
 
 # 課題1-2
 >上記 [課題1-1] のプログラムにおいて、三重の円を描く部分を、
@@ -52,6 +53,7 @@ for分を用いて繰り返し実現できるよう変更したkadai102を作成
 
 ソースコードと実行画面の画像を以下に示す。
 
+kadai102.pde
 ```c++
 void setup() {
     size(600,500);
@@ -80,12 +82,17 @@ void threefoldEllipse() {
 }
 ```
 
+kadai102 実行画面の画像
+![kadai102]()
+
 # 課題1-3
 >上記 [課題1-2] のプログラムにおいて、三重の円を描く部分を、
 三重の正方形に変更して描画できるkadai103を作成せよ。
 
 ソースコードと実行画面の画像を以下に示す。
 
+
+kadai103.pde
 ```c++
 void setup() {
     size(600,500);
@@ -114,6 +121,7 @@ void threefoldEllipse() {
     }
 }
 ```
+kadai103 実行画面の画像
 ![kadai103](../kadai103/kadai103.png)
 
 # 課題1-4
@@ -121,6 +129,7 @@ void threefoldEllipse() {
 
 ソースコードと実行画面の画像を以下に示す。
 
+kadai104.pde
 ```c++
 void setup() {
     size(600,500);
@@ -152,6 +161,7 @@ void threefoldEllipse(int positionX, int positionY) {
 }
 ```
 
+kadai104 実行画面の画像
 ![kadai104](../kadai104/kadai104.png)
 
 # 課題2-1
@@ -162,6 +172,7 @@ kadai201を作成せよ
 
 ソースコードと実行画面の画像を以下に示す。
 
+kadai201.pde
 ```c++
 float x,y;
 float dx = 2.0, dy = 2.0;
@@ -193,7 +204,8 @@ void draw() {
 
 ```
 
-![kadai](../kadai201/201.png)
+kadai201 実行画面の画像
+![kadai201](../kadai201/201.png)
 
 # 課題2-2
 >sample05を変更して、長方形のラケットで円（ボール）の図形を打ち返すことができるプログラムを考える\
@@ -203,6 +215,7 @@ void draw() {
 ラケットの中心座標を`racketX`,`racketY`と再定義し、ラケットの横幅と縦幅を`racketW`,`racketH`、ボールの半径を`radius`と定義して
 ソースコードを以下に示す。
 
+kadai201.pde
 ```c++
 boolean isCollision() {
     float halfW = racketW / 2;
@@ -222,6 +235,7 @@ boolean isCollision() {
 
 ソースコードと実行画面の画像を以下に示す。
 
+kadai203.pde
 ```c++
 class Collisioning{
     Collisioning(boolean x, boolean y) {
@@ -300,4 +314,5 @@ void keyPressed() {
 }
 ```
 
-![kadai](../kadai203/kadai203.png)
+kadai203 実行画面の画像
+![kadai203](../kadai203/kadai203.png)
