@@ -45,7 +45,7 @@ void keyPressed(){
 ```
 
 kadai101 実行画面の画像
-![kadai101]()
+![kadai101](../kadai101/kadai101.png)
 
 # 課題1-2
 >上記 [課題1-1] のプログラムにおいて、三重の円を描く部分を、
@@ -83,7 +83,8 @@ void threefoldEllipse() {
 ```
 
 kadai102 実行画面の画像
-![kadai102]()
+![kadai102-1](../kadai102/kadai102-1.png)
+![kadai102-2](../kadai102/kadai102-2.png)
 
 # 課題1-3
 >上記 [課題1-2] のプログラムにおいて、三重の円を描く部分を、
