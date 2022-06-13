@@ -124,17 +124,9 @@ void draw() {
 
 閾値が大きくなると、輪郭抽出をする箇所が増えた。
 
-閾値 = 60 実行画面の画像
-
-![kadai](../P3/sample302/sample302-60.png)
-
-閾値 = 90 実行画面の画像
-
-![kadai](../P3/sample302/sample302-90.png)
-
-閾値 = 120 実行画面の画像
-
-![kadai](../P3/sample302/sample302-120.png)
+| 閾値 | 60 | 90 | 120 |
+| -- | -- | -- | -- |
+| 実行画像 | ![kadai](../P3/sample302/sample302-60.png) | ![kadai](../P3/sample302/sample302-90.png) | ![kadai](../P3/sample302/sample302-120.png) |
 
 
 # 検討課題1
