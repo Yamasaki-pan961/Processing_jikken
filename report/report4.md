@@ -120,31 +120,161 @@ kadai 実行画面の画像
 
 kadai4202.pyde
 ```py
+gray = "GLAY"
+color = "COLOR"
+nega = "NEGA"
+clear = "CLEAR"
+binary = "BINARY"
+none = "NONE"
+
+def setup():
+    size(480, 360)
+    
+    global mode
+    mode = color
+    global cacheImg, displayImg
+    cacheImg = loadImage("picture002.jpg")
+    displayImg = cacheImg.copy()
+    
+def draw():
+    global mode
+    
+    if mousePressed and (mouseButton == RIGHT):
+        mode = color
+    
+    filterSwitcher()
+    mode = none
+    text("Mouse-RIGHT: Color,  C: Clear",10, 340)
+    text("G: Gray,  I: Nega,  B: Binary",10, 350)
+    
+    
+def filterSwitcher():
+    global displayImg, cacheImg, mode
+    
+    if mode == clear:
+        background(255,255,255)
+        return
+    
+    if mode == none:
+        return
+    
+    if mode == gray:
+        displayImg = cacheImg.copy()
+        displayImg.filter(GRAY)
+    
+    if mode == binary:
+        displayImg = cacheImg.copy()
+        displayImg.filter(THRESHOLD,0.5)
+    
+    if mode == nega:
+        displayImg = cacheImg.copy()
+        displayImg.filter(INVERT)
+    
+    if mode == color:
+        displayImg = cacheImg.copy()
+           
+    image(displayImg,0,0)
+
+def negaFilter():
+    return
+
+def keyPressed():
+    global mode
+    if key == "c":
+        mode = clear
+        
+    if key == "b":
+        mode = binary
+        
+    if key == "i":
+        mode = nega
+    
+    if key == "g":
+        mode = gray
 ```
 
-kadai 実行画面の画像
-![kadai]
+kadai4202 実行画面の画像
+![kadai](../P4/kadai4202/kadai4202.png)
 
-# 課題
->
+# 課題3-1
+>リスト６のsample404.pydeを参考にして、枝分かれの角度aを0～90までキー操作で変更できるようにし、木のフラクタル図形の変化を確認できるプログラムを作成せよ。角度aは初期値を60とし、上向きカーソルキーまたは下向きカーソルキーを押すことで、１ずつ増減できるようにすること。
 
 ソースコードと実行画面の画像を以下に示す。
 
-kadai.pde
+kadai4301.pde
 ```py
+angle = 60
+decreace = 0.66
+
+def setup():
+    size(640,360)
+    
+def draw():
+    background(255)
+    stroke(0)
+    translate(width / 2, height)
+    line(0,0,0,-120)
+    translate(1,-120)
+    branch(120,radians(angle))
+    
+def branch(h, theta):
+    h *= decreace
+    if h > 2:
+        pushMatrix()
+        rotate(theta)
+        line(0,0,0,-h)
+        translate(0,-h)
+        branch(h,theta)
+        popMatrix()
+        with pushMatrix():
+            rotate(-theta)
+            line(0,0,0,-h)
+            translate(0,-h)
+            branch(h,theta)
+
+def incrementAngle():
+    global angle
+    if angle < 90:
+        angle += 1
+
+def decrementAngle():
+    global angle
+    if angle > 0:
+        angle -=1
+        
+def keyPressed():
+    if key == CODED:
+        if keyCode == UP:
+            incrementAngle()
+        
+        if keyCode == DOWN:
+            decrementAngle()
+
 ```
 
-kadai 実行画面の画像
-![kadai]
+kadai4301 実行画面の画像
+![kadai](../P4/kadai4301/kadai4301.png)
 
-# 課題
->
+# 検討課題1
+>リスト６における制御文の「with」（下から6行目）について、どのような制御を行っているのか調査し説明せよ。
 
-ソースコードと実行画面の画像を以下に示す。
+ある一定の期間だけオブジェクトを使用したり、いろいろな設定を行って用事がすんだら元に戻したい、という処理を行う
 
-kadai.pde
-```py
-```
+# 検討課題2
+>フラクタル図形としては他にどのようなものがあるか調査し、事例を上げて説明せよ。
 
-kadai 実行画面の画像
-![kadai]
+フラクタル図形は次のような種類がある
+
+- カントール集合
+- シェルピンスキーのギャスケット
+- コッホ曲線
+- ペアノ曲線
+- 高木曲線
+- ヒルベルト曲線
+- マンデルブロ集合
+- ジュリア集合
+- メンガーのスポンジ
+- ロマネスコ・ブロッコリー - 明確なフラクタル図形をした野菜。
+- バーニングシップ・フラクタル
+- リアプノフ・フラクタル
+- バーンズリーのシダ
