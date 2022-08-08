@@ -2,7 +2,7 @@
 
 <div style="text-align: center;">
 <div style="font-size: 32px;margin: 240px auto 0px">
-第一回レポート
+第六回レポート
 </div>
 <div style="font-size: 24px;margin: 160px auto 0px">
 報告者：EC2-10 山﨑 敦史
